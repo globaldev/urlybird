@@ -1,0 +1,64 @@
+# UrlyBird
+
+UrlyBird fetches all your URIs in one fell swoop.
+
+Send UrlyBird off into the intricate canopies of your URI-inhabited content,
+and watch him bring you back a beakful of Addressable::URI objects
+to do with what you will.
+
+## Installation
+
+    $ gem install urlybird
+
+## Quick Example
+
+Add new or additional query string parameters:
+
+```ruby
+content = <<-EOL
+<a href="http://urlybird.com/">Worms</a>
+Worms: http://urlybird.com/search?q=worms
+EOL
+
+puts UrlyBird.seek(content) do |url|
+  url.query_values = (url.query_values || {}).merge(:q1 => 'one')
+end
+```
+
+The above example will print:
+
+    <a href="http://urlybird.com/?q1=one">Worms</a>
+    Worms: http://urlybird.com/search?q=worms&q1=one"
+
+## Details
+
+`UrlyBird.seek` parses and the string you provide extracting all URLs and yielding
+each one to the block you specify as an [Addressable::URI][addressable]
+instance. You can modify the yielded URI instance in place to change the URL
+to your needs.
+
+[addressable]: https://github.com/sporkmonger/addressable
+
+## Licence
+
+(The MIT License)
+
+Copyright (c) 2012 Global Personals, Ltd.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
