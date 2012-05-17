@@ -1,4 +1,4 @@
-# UrlyBird
+= UrlyBird
 
 UrlyBird fetches all your URIs in one fell swoop.
 
@@ -6,40 +6,36 @@ Send UrlyBird off into the intricate canopies of your URI-inhabited content,
 and watch him bring you back a beakful of Addressable::URI objects
 to do with what you will.
 
-## Installation
+== Installation
 
     $ gem install urlybird
 
-## Quick Example
+== Quick Example
 
 Add new or additional query string parameters:
 
-```ruby
-content = <<-EOL
-<a href="http://urlybird.com/">Worms</a>
-Worms: http://urlybird.com/search?q=worms
-EOL
+  content = <<-EOL
+  <a href="http://urlybird.com/">Worms</a>
+  Worms: http://urlybird.com/search?q=worms
+  EOL
 
-puts UrlyBird.seek(content) do |url|
-  url.query_values = (url.query_values || {}).merge(:q1 => 'one')
-end
-```
+  puts UrlyBird.seek(content) do |url|
+    url.query_values = (url.query_values || {}).merge(:q1 => 'one')
+  end
 
 The above example will print:
 
     <a href="http://urlybird.com/?q1=one">Worms</a>
     Worms: http://urlybird.com/search?q=worms&q1=one"
 
-## Details
+== Details
 
-`UrlyBird.seek` parses and the string you provide extracting all URLs and yielding
-each one to the block you specify as an [Addressable::URI][addressable]
+`UrlyBird.seek` parses the string you provide extracting all URLs and yielding
+each one to the block you specify as an {Addressable::URI}[link:https://github.com/sporkmonger/addressable]
 instance. You can modify the yielded URI instance in place to change the URL
 to your needs.
 
-[addressable]: https://github.com/sporkmonger/addressable
-
-## Licence
+== Licence
 
 (The MIT License)
 
