@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = UrlyBird::VERSION
   s.authors     = ["Kriselda Rabino", "Jim Myhrberg"]
   s.email       = ["kriselda.rabino@gmail.com", "contact@jimeh.me"]
-  s.homepage    = "http://rubygems.org/gems/urlybird"
+  s.homepage    = "http://github.com/globaldev/urlybird"
   s.summary     = "UrlyBird fetches all your URIs in one fell swoop"
   s.description = 'Send UrlyBird off into the intricate canopies of your ' +
                   'URI-inhabited content, and watch him bring you ' +
@@ -16,6 +16,8 @@ Gem::Specification.new do |s|
 
   s.files      = Dir['lib/**/*']
   s.test_files = Dir['spec/**/*']
+  s.rdoc_options = ["--main", "README.rdoc", "--charset", "utf-8"]
+  s.extra_rdoc_files = ["README.rdoc"]
 
   s.add_development_dependency "rspec", ">= 2.8.0"
   s.add_development_dependency "simplecov", ">= 0"
