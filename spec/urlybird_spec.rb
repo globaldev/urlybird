@@ -33,7 +33,7 @@ describe UrlyBird do
     describe 'URL Matching' do
       context 'when given syntactically correct but technically invalid ' +
         'URLs' do
-        let(:content) { 'Wormy: http://www.not-so-urlybird.com/' }
+        let(:content) { 'Wormy : http://www.not-so-urlybird.com/' }
 
         it 'the invalid URL match is silently skipped' do
           matched = []
@@ -101,7 +101,7 @@ describe UrlyBird do
 
       describe 'anchors_only option' do
         it 'defaults to false' do
-          klass.send(:default_opts)[:anchors_only].should be_false
+          klass.send(:default_opts)[:anchors_only].should be false
         end
 
         context 'when set to true' do
