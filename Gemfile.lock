@@ -7,10 +7,12 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.6)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
     multi_json (1.10.1)
+    public_suffix (4.0.6)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
